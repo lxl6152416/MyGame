@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,9 +21,10 @@
         var canvas;
         var ctx;
         var imageManager;
-        var inputHandler;
         var mapRenderer;
-        var i = 0;
+        var speed = 100;
+        var moveX = 500;
+        var moveY = 500;
 
         var images = {
             "house" : "img/house.png",
@@ -33,13 +34,33 @@
         function init(){
             imageManager = new ImageManager();
             imageManager.load(images, onLoaded);
+
             canvas = initFullScreenCanvas("mainCanvas");
             ctx = canvas.getContext("2d");
 
-            window.onkeydown = function (e) {
+            /*
+             Left Arrow 	37
+             Up Arrow 	38
+             Right Arrow 	39
+             Dw Arrow 	40
+             */
+           window.onkeydown = function (e) {
                 e = e?e:window.event;
-                onMove(e);
-            }
+                if(e.keyCode == 38){
+                    moveY -= speed;
+                    console.log(moveY);
+                }else if (e.keyCode == 40){
+                    moveY += speed;
+                    console.log(moveY);
+                }else if (e.keyCode == 37){
+                    moveX -= speed;
+                    console.log(moveX);
+                }else if (e.keyCode ==39){
+                    moveX += speed;
+                    console.log(moveX);
+                }
+               onMove();
+            };
         }
 
         //图像加载完后回调;
@@ -54,8 +75,9 @@
             requestAnimationFrame(arguments.callee);
         }
 
-        function onMove(e){
-            mapRenderer.move(e.deltaX, e.deltaY);
+        function onMove(){
+            console.log(moveX+","+moveY);
+            mapRenderer.move(moveX, moveY);
         }
 
         function clear(){

@@ -20,31 +20,23 @@
     <favorites_list name="PM" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.4269068">
+    <splitter split-orientation="horizontal" split-proportion="0.7573443">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index1.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/index1.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.8694362">
-                  <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <splitter split-orientation="horizontal" split-proportion="0.7573443">
+        <splitter split-orientation="vertical" split-proportion="0.6620763">
           <split-first>
             <leaf>
-              <file leaf-file-name="MapRenderer.js" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/js/MapRenderer.js">
+              <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/index.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.73046875">
-                      <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-                      <folding />
+                    <state vertical-scroll-proportion="0.8632327">
+                      <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+                      <folding>
+                        <element signature="e#1843#1988#0" expanded="false" />
+                        <element signature="e#2017#2137#0" expanded="false" />
+                        <element signature="e#2287#2416#0" expanded="false" />
+                        <element signature="e#2465#2712#0" expanded="false" />
+                        <element signature="e#2751#2995#0" expanded="false" />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
@@ -53,16 +45,32 @@
           </split-first>
           <split-second>
             <leaf>
-              <file leaf-file-name="outside2.png" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/img/outside2.png">
-                  <provider selected="true" editor-type-id="images">
-                    <state />
+              <file leaf-file-name="MapRenderer.js" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/js/MapRenderer.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state vertical-scroll-proportion="1.6655172">
+                      <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
+                      <folding>
+                        <element signature="e#1776#2592#0" expanded="false" />
+                      </folding>
+                    </state>
                   </provider>
                 </entry>
               </file>
             </leaf>
           </split-second>
         </splitter>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="outside2.png" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/img/outside2.png">
+              <provider selected="true" editor-type-id="images">
+                <state />
+              </provider>
+            </entry>
+          </file>
+        </leaf>
       </split-second>
     </splitter>
   </component>
@@ -79,10 +87,10 @@
       <list>
         <option value="$PROJECT_DIR$/JS/MapRenderer.js" />
         <option value="$PROJECT_DIR$/JS/ImageManager.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/ImageManager.js" />
         <option value="$PROJECT_DIR$/index1.html" />
         <option value="$PROJECT_DIR$/js/MapRenderer.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -157,20 +165,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -252,7 +246,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11354167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -289,7 +283,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -314,7 +308,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
-          <folding />
+          <folding>
+            <element signature="e#1776#2592#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -342,14 +338,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6757679">
-          <caret line="49" column="14" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/ImageManager.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6244344">
@@ -371,19 +359,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index1.html">
+    <entry file="file://$PROJECT_DIR$/js/MapRenderer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8694362">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="1.6655172">
+          <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
+          <folding>
+            <element signature="e#1776#2592#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/MapRenderer.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73046875">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.8632327">
+          <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+          <folding>
+            <element signature="e#1843#1988#0" expanded="false" />
+            <element signature="e#2017#2137#0" expanded="false" />
+            <element signature="e#2287#2416#0" expanded="false" />
+            <element signature="e#2465#2712#0" expanded="false" />
+            <element signature="e#2751#2995#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
