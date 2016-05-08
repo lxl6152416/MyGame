@@ -22,20 +22,21 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.7573443">
       <split-first>
-        <splitter split-orientation="vertical" split-proportion="0.6620763">
+        <splitter split-orientation="vertical" split-proportion="0.62817794">
           <split-first>
-            <leaf>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/index.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.8632327">
-                      <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+                    <state vertical-scroll-proportion="0.0433145">
+                      <caret line="46" column="44" selection-start-line="46" selection-start-column="44" selection-end-line="46" selection-end-column="44" />
                       <folding>
-                        <element signature="e#1843#1988#0" expanded="false" />
-                        <element signature="e#2017#2137#0" expanded="false" />
-                        <element signature="e#2287#2416#0" expanded="false" />
-                        <element signature="e#2465#2712#0" expanded="false" />
-                        <element signature="e#2751#2995#0" expanded="false" />
+                        <element signature="e#1683#1828#0" expanded="false" />
+                        <element signature="e#1857#1977#0" expanded="false" />
+                        <element signature="e#1980#2105#0" expanded="false" />
+                        <element signature="e#2131#2260#0" expanded="false" />
+                        <element signature="e#2309#2556#0" expanded="false" />
+                        <element signature="e#2595#2839#0" expanded="false" />
                       </folding>
                     </state>
                   </provider>
@@ -44,12 +45,12 @@
             </leaf>
           </split-first>
           <split-second>
-            <leaf>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file leaf-file-name="MapRenderer.js" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/js/MapRenderer.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="1.6655172">
-                      <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
+                    <state vertical-scroll-proportion="0.21428572">
+                      <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
                       <folding>
                         <element signature="e#1776#2592#0" expanded="false" />
                       </folding>
@@ -62,7 +63,7 @@
         </splitter>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="outside2.png" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/img/outside2.png">
               <provider selected="true" editor-type-id="images">
@@ -291,8 +292,45 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+          <folding>
+            <element signature="e#1683#1828#0" expanded="false" />
+            <element signature="e#1857#1977#0" expanded="false" />
+            <element signature="e#1980#2105#0" expanded="false" />
+            <element signature="e#2131#2260#0" expanded="false" />
+            <element signature="e#2309#2556#0" expanded="false" />
+            <element signature="e#2595#2839#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/MapRenderer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
+          <folding>
+            <element signature="e#1776#2592#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/outside2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding />
+          <folding>
+            <element signature="e#1683#1828#0" expanded="false" />
+            <element signature="e#1857#1977#0" expanded="false" />
+            <element signature="e#1980#2105#0" expanded="false" />
+            <element signature="e#2131#2260#0" expanded="false" />
+            <element signature="e#2309#2556#0" expanded="false" />
+            <element signature="e#2595#2839#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -361,8 +399,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/MapRenderer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6655172">
-          <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.21428572">
+          <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
           <folding>
             <element signature="e#1776#2592#0" expanded="false" />
           </folding>
@@ -371,14 +409,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8632327">
-          <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0433145">
+          <caret line="46" column="44" selection-start-line="46" selection-start-column="44" selection-end-line="46" selection-end-column="44" />
           <folding>
-            <element signature="e#1843#1988#0" expanded="false" />
-            <element signature="e#2017#2137#0" expanded="false" />
-            <element signature="e#2287#2416#0" expanded="false" />
-            <element signature="e#2465#2712#0" expanded="false" />
-            <element signature="e#2751#2995#0" expanded="false" />
+            <element signature="e#1683#1828#0" expanded="false" />
+            <element signature="e#1857#1977#0" expanded="false" />
+            <element signature="e#1980#2105#0" expanded="false" />
+            <element signature="e#2131#2260#0" expanded="false" />
+            <element signature="e#2309#2556#0" expanded="false" />
+            <element signature="e#2595#2839#0" expanded="false" />
           </folding>
         </state>
       </provider>

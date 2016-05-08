@@ -23,8 +23,8 @@
         var imageManager;
         var mapRenderer;
         var speed = 100;
-        var moveX = 500;
-        var moveY = 500;
+        var moveX = 0;
+        var moveY = 0;
 
         var images = {
             "house" : "img/house.png",
@@ -45,21 +45,15 @@
              Dw Arrow 	40
              */
            window.onkeydown = function (e) {
-                e = e?e:window.event;
                 if(e.keyCode == 38){
-                    moveY -= speed;
-                    console.log(moveY);
+                    mapRenderer.move(moveX, speed);
                 }else if (e.keyCode == 40){
-                    moveY += speed;
-                    console.log(moveY);
+                    mapRenderer.move(moveX,-speed);
                 }else if (e.keyCode == 37){
-                    moveX -= speed;
-                    console.log(moveX);
+                    mapRenderer.move( speed, moveY);
                 }else if (e.keyCode ==39){
-                    moveX += speed;
-                    console.log(moveX);
-                }
-               onMove();
+                    mapRenderer.move(-speed, moveY);
+                };
             };
         }
 
@@ -75,10 +69,10 @@
             requestAnimationFrame(arguments.callee);
         }
 
-        function onMove(){
+ /*       function onMove(){
             console.log(moveX+","+moveY);
             mapRenderer.move(moveX, moveY);
-        }
+        }*/
 
         function clear(){
             //填充画布
