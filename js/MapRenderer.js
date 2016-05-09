@@ -93,7 +93,7 @@ _p._redrawOffscreen = function() {
 
     for (var cellY = startY; cellY <= endY; cellY++) {
         for (var cellX = startX; cellX <= endX; cellX++) {
-            var tileId = this._mapData[cellY][cellX];
+            var tileId = this._mapData[cellY][cellX] -1;
             this._drawTileAt(ctx, tileId, cellX, cellY);
         }
     }

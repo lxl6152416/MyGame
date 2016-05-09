@@ -82,13 +82,13 @@
 
         //图像加载完后回调;
         function onLoaded(){
+
             mapRenderer = new MapRenderer(world, imageManager.get("house"),32,canvas.width,canvas.height);
             spriteSheet = new SpriteSheet(imageManager.get("man"), Human);
             spriteSheet.drawFrame(ctx, 0,0, window.screen.width/2 ,window.screen.height/2);
-
             for(var y = 0; y<world.length ;y++){
                 for(var x = 0; x<world[y].length;x++){
-                    var tileId = world[y][x];
+                    var tileId = world[y][x]-1;
 
                     if((tileId <=10 && tileId >=0 )|| (tileId >13 && tileId <20) || (tileId >23 && tileId <30))
                         continue;
@@ -120,7 +120,7 @@
         function canMove(x, y){
             var px = Math.floor((-mapRenderer._x + window.screen.width/2 +x) / 32);
             var py = Math.floor((-mapRenderer._y + window.screen.height/2+y)/ 32);
-            var tileID = world[py][px];
+            var tileID = world[py][px] -1;
             console.log(x +","+y+"||"+tileID);
             if ((tileID > -1 && tileID < 11) || (tileID > 13 && tileID < 20) || (tileID > 23 && tileID < 30)){
                 return true;
