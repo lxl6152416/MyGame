@@ -16,20 +16,29 @@
     <script src="js/ImageManager.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/world.js"></script>
+    <script src="js/Human.js"></script>
     <script src="js/MapRenderer.js"></script>
+    <script src="js/Animator.js"></script>
     <script>
         var canvas;
         var ctx;
         var imageManager;
         var mapRenderer;
-        var speed = 100;
+        var spriteSheet;
+        var speed = 10;
         var moveX = 0;
         var moveY = 0;
+        var frame = 0;
+        var numFrames = 4;
+        var duration = numFrames * 100;
+        var frameStart = 0;
+        var currentFrame = 0;
 
         var images = {
             "house" : "img/house.png",
             "outside" : "img/outside.png",
-            "outside2" : "img/outside2.png"
+            "outside2" : "img/outside2.png",
+            "man" : "img/RM.png"
         };
         function init(){
             imageManager = new ImageManager();
@@ -47,12 +56,16 @@
            window.onkeydown = function (e) {
                 if(e.keyCode == 38){
                     mapRenderer.move(moveX, speed);
+                    frame = 3;
                 }else if (e.keyCode == 40){
                     mapRenderer.move(moveX,-speed);
+                    frame = 0;
                 }else if (e.keyCode == 37){
                     mapRenderer.move( speed, moveY);
+                    frame = 1;
                 }else if (e.keyCode ==39){
                     mapRenderer.move(-speed, moveY);
+                    frame = 2;
                 };
             };
         }
@@ -60,12 +73,20 @@
         //图像加载完后回调;
         function onLoaded(){
             mapRenderer = new MapRenderer(world, imageManager.get("outside2"),32,canvas.width,canvas.height);
+            spriteSheet = new SpriteSheet(imageManager.get("man"), Human);
+            spriteSheet.drawFrame(ctx, 0,0, window.screen.width/2 ,window.screen.height/2);
             animate(0);
         }
 
         function animate(t){
             clear();
             mapRenderer.draw(ctx);
+
+            var now = t || new Date().getTime();
+            var passed = (now - frameStart)%duration;
+            var currentFrame = Math.floor((passed/duration)*numFrames);
+
+            spriteSheet.drawFrame(ctx, frame, currentFrame, window.screen.width/2 ,window.screen.height/2);
             requestAnimationFrame(arguments.callee);
         }
 
