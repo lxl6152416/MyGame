@@ -70,9 +70,9 @@
         }
 
         var keyDown = function (event) {
+            var keyCode = event.keyCode;
             if (isMoving){
                 event = event || window.event;
-                var keyCode = event.keyCode;
 
                 if(keyCode == 38){
                     if(canMove(0 , -speed))
@@ -93,7 +93,9 @@
                 };
             }
             else{
-
+                if(keyCode == 32) {
+                    isMoving = !isMoving;
+                }
             }
         };
         //图像加载完后回调;
