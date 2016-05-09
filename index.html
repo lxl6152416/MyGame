@@ -25,12 +25,12 @@
         var imageManager;
         var mapRenderer;
         var spriteSheet;
-        var speed = 10;
+        var speed = 16;
         var moveX = 0;
         var moveY = 0;
         var frame = 0;
         var numFrames = 4;
-        var duration = numFrames * 100;
+        var duration = numFrames * 250;
         var frameStart = 0;
         var currentFrame = 0;
 
@@ -53,7 +53,7 @@
              Right Arrow 	39
              Dw Arrow 	40
              */
-           window.onkeydown = function (e) {
+           window.onkeypress = function (e) {
                 if(e.keyCode == 38){
                     mapRenderer.move(moveX, speed);
                     frame = 3;
@@ -72,7 +72,7 @@
 
         //图像加载完后回调;
         function onLoaded(){
-            mapRenderer = new MapRenderer(world, imageManager.get("outside2"),32,canvas.width,canvas.height);
+            mapRenderer = new MapRenderer(world, imageManager.get("house"),32,canvas.width,canvas.height);
             spriteSheet = new SpriteSheet(imageManager.get("man"), Human);
             spriteSheet.drawFrame(ctx, 0,0, window.screen.width/2 ,window.screen.height/2);
             animate(0);
