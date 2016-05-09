@@ -18,7 +18,6 @@ _p.load = function(images, onDone, onProgress) {
     // The images queue
     var queue = [];
     for (var im in images) {
-		console.log(images[im]);
         queue.push({
             key: im,
             path: images[im]
