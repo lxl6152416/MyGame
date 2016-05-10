@@ -20,18 +20,83 @@
     <favorites_list name="PM" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26047567">
-              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="vertical" split-proportion="0.528481">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="1.1617312">
+                  <caret line="94" column="48" selection-start-line="94" selection-start-column="48" selection-end-line="94" selection-end-column="48" />
+                  <folding>
+                    <element signature="e#1217#1501#0" expanded="false" />
+                    <element signature="e#1526#1988#0" expanded="false" />
+                    <element signature="e#1738#1865#0" expanded="false" />
+                    <element signature="e#2037#2384#0" expanded="false" />
+                    <element signature="e#3022#4170#0" expanded="false" />
+                    <element signature="e#4199#4811#0" expanded="false" />
+                    <element signature="e#4842#5551#0" expanded="false" />
+                    <element signature="e#5576#5705#0" expanded="false" />
+                    <element signature="e#5754#6001#0" expanded="false" />
+                    <element signature="e#6039#6351#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MapRenderer.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/MapRenderer.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Fighting.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/Fighting.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+                  <folding>
+                    <element signature="n#!!block;n#Fighting#0" expanded="false" />
+                    <element signature="e#506#581#0" expanded="false" />
+                    <element signature="e#612#1319#0" expanded="false" />
+                    <element signature="e#1349#2121#0" expanded="false" />
+                    <element signature="e#2569#2693#0" expanded="false" />
+                    <element signature="e#2720#2743#0" expanded="false" />
+                    <element signature="e#2771#2794#0" expanded="false" />
+                    <element signature="e#2831#2947#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Fighting.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/js/Fighting.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.66267943">
+                  <caret line="73" column="52" selection-start-line="73" selection-start-column="52" selection-end-line="73" selection-end-column="52" />
+                  <folding>
+                    <element signature="e#612#1319#0" expanded="false" />
+                    <element signature="e#1349#2121#0" expanded="false" />
+                    <element signature="e#2569#2693#0" expanded="false" />
+                    <element signature="e#2720#2743#0" expanded="false" />
+                    <element signature="e#2771#2794#0" expanded="false" />
+                    <element signature="e#2831#2947#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -54,6 +119,9 @@
         <option value="$PROJECT_DIR$/js/WorldObject.js" />
         <option value="$PROJECT_DIR$/js/MapRenderer.js" />
         <option value="$PROJECT_DIR$/js/world.js" />
+        <option value="$PROJECT_DIR$/js/KeyEventHandle.js" />
+        <option value="$USER_HOME$/Desktop/文件接收柜/js二次/form.html" />
+        <option value="$USER_HOME$/Desktop/文件接收柜/js二次/js/form.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/Fighting.js" />
       </list>
@@ -65,10 +133,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="613" />
+    <option name="y" value="2" />
+    <option name="width" value="1309" />
+    <option name="height" value="1060" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -101,6 +169,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -119,10 +189,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -197,10 +279,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="613" y="2" width="1309" height="1060" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11354167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16860016" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -234,11 +316,45 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1217#1501#0" expanded="false" />
+            <element signature="e#1526#1988#0" expanded="false" />
+            <element signature="e#1738#1865#0" expanded="false" />
+            <element signature="e#2037#2384#0" expanded="false" />
+            <element signature="e#3022#4170#0" expanded="false" />
+            <element signature="e#4199#4811#0" expanded="false" />
+            <element signature="e#4842#5551#0" expanded="false" />
+            <element signature="e#5576#5705#0" expanded="false" />
+            <element signature="e#5754#6001#0" expanded="false" />
+            <element signature="e#6039#6351#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Fighting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#612#1319#0" expanded="false" />
+            <element signature="e#1349#2121#0" expanded="false" />
+            <element signature="e#2569#2693#0" expanded="false" />
+            <element signature="e#2720#2743#0" expanded="false" />
+            <element signature="e#2771#2794#0" expanded="false" />
+            <element signature="e#2831#2947#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../资料/SourceCode/code/setup/js/EventEmitter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.242623">
@@ -253,11 +369,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Desktop/文件接收柜/js二次/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22310306">
+          <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/文件接收柜/js二次/js/form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32677597">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/KeyEventHandle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.048625793">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#49#0" expanded="false" />
+            <element signature="n#!!block;n#KeyDown#0;n#KeyDown#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/MapRenderer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26047567">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-          <folding />
+        <state vertical-scroll-proportion="1.1617312">
+          <caret line="94" column="48" selection-start-line="94" selection-start-column="48" selection-end-line="94" selection-end-column="48" />
+          <folding>
+            <element signature="e#1217#1501#0" expanded="false" />
+            <element signature="e#1526#1988#0" expanded="false" />
+            <element signature="e#1738#1865#0" expanded="false" />
+            <element signature="e#2037#2384#0" expanded="false" />
+            <element signature="e#3022#4170#0" expanded="false" />
+            <element signature="e#4199#4811#0" expanded="false" />
+            <element signature="e#4842#5551#0" expanded="false" />
+            <element signature="e#5576#5705#0" expanded="false" />
+            <element signature="e#5754#6001#0" expanded="false" />
+            <element signature="e#6039#6351#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Fighting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66267943">
+          <caret line="73" column="52" selection-start-line="73" selection-start-column="52" selection-end-line="73" selection-end-column="52" />
+          <folding>
+            <element signature="e#612#1319#0" expanded="false" />
+            <element signature="e#1349#2121#0" expanded="false" />
+            <element signature="e#2569#2693#0" expanded="false" />
+            <element signature="e#2720#2743#0" expanded="false" />
+            <element signature="e#2771#2794#0" expanded="false" />
+            <element signature="e#2831#2947#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
