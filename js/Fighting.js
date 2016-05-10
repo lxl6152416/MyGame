@@ -109,4 +109,10 @@ _p._reduceHP = function(who , dHP){
     else if(who == 2){
         this._newEmHP -= dHP;
     }
+};
+
+_p._getHP = function(){
+    if(this._newMeHP <= 0 || this._newEmHP<=0)
+        return true;
+    return false;
 }
