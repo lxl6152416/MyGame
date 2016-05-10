@@ -9,15 +9,19 @@ function Fighting(img){
     this._emX = this._w *5/8;
     this._emY = 100 ;
 
+    this._state1 = img.get("select1");
+    this._state2 = img.get("select2");
+    this._state3 = img.get("select3");
+    this._state4 = img.get("select4");
+
     this._meIMG = img.get("me");
     this._enemyIMG = img.get("enemy");
     this._HP = img.get("HP");
-
     this._meHP = 100;
     this._emHP = 100;
     this._newMeHP = this._meHP;
     this._newEmHP = this._emHP;
-    this._selection = 1;
+    this._state = 1;
 }
 
 _p = Fighting.prototype;
@@ -48,7 +52,7 @@ _p._drawMe = function (ctx) {
 };
 _p._drawEm = function (ctx) {
         ctx.drawImage(this._enemyIMG,0,0,96,96,this._emX,this._emY,128,128);
-        ctx.drawImage(this._HP,0,0,22,15,this._emX,this._emY - 30,22,15);
+        ctx.drawImage(this._HP,0,0,22,15,this._emX,this._emY - 10,22,15);
         ctx.fillStyle = "green";
         ctx.strokeStyle = "black";
         ctx.lineWidth = 5;
@@ -65,14 +69,7 @@ _p._drawEm = function (ctx) {
         ctx.fillText(this._newEmHP +" / "+ this._emHP , this._emX +70 , this._emY+30  , 50);
 };
 _p._drawFight =function (ctx){
-    ctx.strokeStyle = "black";
-    ctx.lineWidth = 5;
-    ctx.strokeRect(this._w *1/3,this._h *2/3 ,this._w *1/3 , this._h *1/3 -10);
-
-    ctx.fillText("战斗" , this._w *5/12 , this._h *5/6 , 50);
-    ctx.fillText("背包" , this._w /2 , this._h *2/3 +50 , 50);
-    ctx.fillText("精灵" , this._w *5/12 , this._h *5/6 +50 , 50);
-    ctx.fillText("逃跑" , this._w /2 , this._h *2/3 +100 , 50);
+    ctx.drawImage(this._whichState(), 0, 0, 620, 184,this._meX + 128,this._meY + 128,620,184);
 };
 
 _p.resetView = function(x ,y){
@@ -83,6 +80,20 @@ _p.resetView = function(x ,y){
     this._emX = x*5/8;
     this._emY = 100 ;
 };
+_p.setState = function(state){
+    this._state = state;
+};
+_p.getState = function (){
+    return this._state;
+}
+_p._whichState = function () {
+    switch (this._state){
+        default: case 1 : return this._state1;break;
+        case 2 : return this._state2;break;
+        case 3 : return this._state3;break;
+        case 4 : return this._state4;break;
+    }
+}
 _p._setMeHP = function(x){
     this._meHP = x;
 };

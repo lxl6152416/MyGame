@@ -53,7 +53,11 @@
             "man" : "img/RM.png",
             "me" : "img/1/3Gback.png",
             "enemy" : "img/4/front.png",
-            "HP" : "img/HP.png"
+            "HP" : "img/HP.png",
+            "select1" :"img/select1.png",
+            "select2" :"img/select2.png",
+            "select3" :"img/select3.png",
+            "select4" :"img/select4.png",
         };
         function init(){
             imageManager = new ImageManager();
@@ -101,7 +105,7 @@
             requestAnimationFrame(arguments.callee);
         }
 
-        var KeyDown = function(event){
+        var KeyDown = function(event) {
             event = event || window.event;
             var keyCode = event.keyCode;
 
@@ -131,12 +135,66 @@
                 if (keyCode == 32) {
                     isMoving = !isMoving;
                 }
-                else if(keyCode == 40){
-                    fight._reduceHP(1 , 10);
+
+                if (keyCode == 38) {
+                    switch (fight.getState()) {
+                        case 1 :
+                        case 2:
+                            return;
+                            break;
+                        case 3 :
+                            fight.setState(1);
+                            break;
+                        case 4 :
+                            fight.setState(2);
+                            break;
+                    }
+                } else if (keyCode == 40) {
+                    switch (fight.getState()) {
+                        case 1 :
+                            fight.setState(3);
+                            break;
+                        case 2 :
+                            fight.setState(4);
+                            break;
+                        case 3 :
+                        case 4 :
+                            return;
+                            break;
+                    }
+                } else if (keyCode == 37) {
+                    switch (fight.getState()) {
+                        case 1 :
+                            return;
+                            break;
+                        case 2 :
+                            fight.setState(1);
+                            break;
+                        case 3 :
+                            return;
+                            break;
+                        case 4 :
+                            fight.setState(3);
+                            break;
+                    }
+                } else if (keyCode == 39) {
+                    switch (fight.getState()) {
+                        case 1 :
+                            fight.setState(2);
+                            break;
+                        case 2 :
+                            return;
+                            break;
+                        case 3 :
+                            fight.setState(4);
+                            break;
+                        case 4 :
+                            return;
+                            break;
+                    }
                 }
             }
         };
-
         function initObj(){
             for(var y = 0; y<world.length ;y++){
                 for(var x = 0; x<world[y].length;x++){
