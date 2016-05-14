@@ -114,6 +114,32 @@
         float:left;
         }
     </style>
+    <script>
+        function goTo(){
+
+                    var docElm = document.documentElement;
+//W3C
+                    if (docElm.requestFullscreen) {
+                        docElm.requestFullscreen();
+                    }
+//FireFox
+                    else if (docElm.mozRequestFullScreen) {
+                        docElm.mozRequestFullScreen();
+                    }
+//Chrome等
+                    else if (docElm.webkitRequestFullScreen) {
+                        docElm.webkitRequestFullScreen();
+                    }
+//IE11
+                    else if (elem.msRequestFullscreen) {
+                        elem.msRequestFullscreen();
+                    }
+
+        }
+        function opEn(){
+            window.open("./index.html");
+        }
+    </script>
 </head>
 <body>
     <div id="head">
@@ -129,14 +155,14 @@
         <img src="img/lunbo66.jpg" height="500" width="1300" alt="背景">
     </div>
     <div id="main1">
-        <form action="second.html" name="form1">
+        <form action="index.html" name="form1">
             <br /><br />
            <span>账号：</span> <input type="text" size="15"><br />
             <br /><br />
             <span>密码：</span><input type="password" size="15"><br />
-            <a href="javascript:form1.submit();">
-                <img src="img/a.jpg" alt="go" />
-            </a>
+
+                <img src="img/a.jpg" alt="go" onclick="opEn()"/>;
+
             <a id="zixun" href="#"><img src="img/55.jpg" /></a>
         </form>
     </div>
@@ -169,7 +195,7 @@
 
     </div>
     <div id="bottom">
-
+        <input type="button" id="btn" value="Click" onclick="goTo()">
     </div>
    
 </body>

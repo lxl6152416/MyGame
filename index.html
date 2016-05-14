@@ -13,6 +13,7 @@
             border:0;
         }
     </style>
+    <script src="js/jquery-2.2.3.js"></script>
     <script src="js/ImageManager.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/world.js"></script>
@@ -26,6 +27,8 @@
     <script type="text/javascript">
         var canvas;
         var ctx;
+        var fightCanvas;
+        var figthCtx;
         var imageManager;
         var mapRenderer;
         var spriteSheet;
@@ -45,11 +48,10 @@
         var frameStart = 0;
         var currentFrame = 0;
         var isMoving = true;
+        var togglling = true;
 
         var images = {
             "house" : "img/house.png",
-            "outside" : "img/outside.png",
-            "outside2" : "img/outside2.png",
             "man" : "img/RM.png",
             "me" : "img/1/3Gback.png",
             "enemy" : "img/4/front.png",
@@ -65,14 +67,14 @@
 
             canvas = initFullScreenCanvas("mainCanvas");
             ctx = canvas.getContext("2d");
-
             /*
              Left Arrow 	37
              Up Arrow 	38
              Right Arrow 	39
              Dw Arrow 	40
              */
-           // window.addEventListener("keypress",keyDown, false);
+            alert("请双击进入全屏模式!");
+            document.body.ondblclick = fullScreen;
             document.body.onkeydown = KeyDown;
         }
 
@@ -109,7 +111,7 @@
             event = event || window.event;
             var keyCode = event.keyCode;
 
-            if (isMoving) {
+            if (isMoving && togglling) {
                 event = event || window.event;
 
                 if (keyCode == 38) {
@@ -149,6 +151,7 @@
                             else {
                             alert("逃跑成功!");
                             isMoving = !isMoving;
+                            togglling = !togglling;
                         }
                     }
                 }
@@ -239,9 +242,13 @@
             {
                 if(tileID == 10){
                     //遇到PM
-                    if(Math.random() < 0.1) {
-                        isMoving = !isMoving;
+                    if(Math.random() < 0.01) {
+                        togglling = !togglling;
+                        $("#mainCanvas").fadeTo("slow",0.3).fadeTo("slow",0.8).fadeTo("slow" , 0.5).fadeTo("slow" , 1.0);
                         fight = new Fighting(imageManager);
+                        setTimeout(function () {
+                            isMoving = !isMoving;
+                        },2000);
                     }
                 }
                 return true;
@@ -267,7 +274,25 @@
             fight && fight.resetView(canvas.width , canvas.height);
             mapRenderer && mapRenderer.setViewportSize(canvas.width , canvas.height);
         }
-
+        function fullScreen(){
+            var docElm = document.documentElement;
+//W3C
+            if (docElm.requestFullscreen) {
+                docElm.requestFullscreen();
+            }
+//FireFox
+            else if (docElm.mozRequestFullScreen) {
+                docElm.mozRequestFullScreen();
+            }
+//Chrome等
+            else if (docElm.webkitRequestFullScreen) {
+                docElm.webkitRequestFullScreen();
+            }
+//IE11
+            else if (docElm.msRequestFullscreen) {
+                docElm.msRequestFullscreen();
+            }
+        }
     </script>
 </head>
 <body onload="init()">
