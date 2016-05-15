@@ -2,12 +2,12 @@
  * Created by Administrator on 2016/5/9.
  */
 function Fighting(img){
-    this._w = 800;
-    this._h = 600;
+    this._w = 1920;
+    this._h = 1080;
     this._meX = this._w/8;
     this._meY = this._h/2;
     this._emX = this._w *5/8;
-    this._emY = 100 ;
+    this._emY = 200 ;
 
     this._state1 = img.get("select1");
     this._state2 = img.get("select2");
@@ -104,15 +104,17 @@ _p._setEmHP = function(y){
 
 _p._reduceHP = function(who , dHP){
     if(who == 1){
-        this._newMeHP -= dHP;
+        if((this._newMeHP - dHP)< 0 ) this._newMeHP = 0;
+        else this._newMeHP -= dHP ;
     }
     else if(who == 2){
-        this._newEmHP -= dHP;
+        if((this._newEmHP - dHP) < 0 ) this._newEmHP = 0;
+        else this._newEmHP -= dHP ;
     }
 };
 
 _p._getHP = function(){
-    if(this._newMeHP <= 0 || this._newEmHP<=0)
+    if(this._newMeHP == 0 || this._newEmHP == 0)
         return true;
     return false;
 }

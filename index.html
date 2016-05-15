@@ -23,6 +23,7 @@
     <script src="js/WorldObject.js"></script>
     <script src="js/Fighting.js"></script>
     <script src="js/KeyEventHandle.js"></script>
+    <script src="js/BagRender.js"></script>
 
     <script type="text/javascript">
         var canvas;
@@ -34,6 +35,7 @@
         var spriteSheet;
         var worldObject;
         var fight;
+        var bag;
 
         var obj = [];
         var id = 0;
@@ -47,8 +49,14 @@
         var duration = numFrames * 500;
         var frameStart = 0;
         var currentFrame = 0;
+
+        //以下布尔变量表示游戏当前状态.
         var isMoving = true;
-        var togglling = true;
+        var togglling = false;
+        var isFighting = false;
+        var isMenu = false;
+        var isBag = false;
+        var doNothing = false;
 
         var images = {
             "house" : "img/house.png",
@@ -62,9 +70,11 @@
             "select4" :"img/select4.png",
         };
         function init(){
+            //Load IMG source.
             imageManager = new ImageManager();
             imageManager.load(images, onLoaded);
 
+            //get Context.
             canvas = initFullScreenCanvas("mainCanvas");
             ctx = canvas.getContext("2d");
             /*
@@ -73,6 +83,7 @@
              Right Arrow 	39
              Dw Arrow 	40
              */
+
             alert("请双击进入全屏模式!");
             document.body.ondblclick = fullScreen;
             document.body.onkeydown = KeyDown;
@@ -83,15 +94,28 @@
 
             mapRenderer = new MapRenderer(world, imageManager.get("house"),32,canvas.width,canvas.height);
             spriteSheet = new SpriteSheet(imageManager.get("man"), Human);
-            spriteSheet.drawFrame(ctx, 0,0, window.screen.width/2 ,window.screen.height/2);
             initObj(); //初始化世界对象数组.
+            bag = new BagRender();
 
-            animate(0);
+            animate(0);//开始渲染
         }
 
         function animate(t){
             clear();
-            if (isMoving){
+            //根据游戏当前状态,进行各个状态的渲染.
+            if(togglling){
+
+                mapRenderer.draw(ctx);
+                //播放遭遇战动画...
+                //2S 后进入战斗...
+                setTimeout(function () {
+                    isMoving = false;
+                    togglling = false;
+                    isFighting = true;
+                } , 2000);
+
+            }
+            else if (isMoving){
                 mapRenderer.draw(ctx);
 
                 now = 0 || new Date().getTime();//初始化开始时间;
@@ -99,8 +123,9 @@
                 var currentFrame = Math.floor((passed/duration)*numFrames);
 
                 spriteSheet.drawFrame(ctx, frame, currentFrame, window.screen.width/2 ,window.screen.height/2);
+                if(isBag) bag.draw(ctx);
             }
-            else{
+            else if (isFighting){
                 //进入战斗 !isMoving
                 fight.draw(ctx);
             }
@@ -111,9 +136,22 @@
             event = event || window.event;
             var keyCode = event.keyCode;
 
-            if (isMoving && togglling) {
+            //no action expecting..
+            if(doNothing){
+                return false;
+            }
+
+            if(togglling){
+                return false;
+            }
+            else if (isMoving) {
                 event = event || window.event;
 
+                if (keyCode == 66) {
+                    alert("Open Bag.");
+                    isBag = true;
+                }
+                if(keyCode == 27) isBag = false;
                 if (keyCode == 38) {
                     if (canMove(0, -speed))
                         mapRenderer.move(moveX, speed);
@@ -133,14 +171,23 @@
                 }
                 ;
             }
-            else {
+            else if (isFighting){
+                //空格键
                 if (keyCode == 32) {
                     switch (fight.getState()){
-                        case 1 : alert("You hit it!");
+                        case 1 :
                             fight._reduceHP(2 , Math.floor(Math.random()*20));
-                                alert("You were attacked.");
                             fight._reduceHP(1 , Math.floor(Math.random()*10));
-                                if(fight._getHP()) isMoving = !isMoving;
+                                     if(fight._getHP()) {
+                                         doNothing = true;
+                                         $("#mainCanvas").fadeOut("slow").fadeIn("slow").fadeOut("fast").fadeIn("fast");
+                                         setTimeout(function(){
+                                             doNothing = false;
+                                             togglling = false;
+                                             isMoving = true;
+                                             isFighting = false;
+                                         },2000);
+                                    };
                             break;
                         case 2 : alert("You opened BAG.");break;
                         case 3 : alert("You choosed PM?");break;
@@ -150,12 +197,19 @@
                         }
                             else {
                             alert("逃跑成功!");
-                            isMoving = !isMoving;
-                            togglling = !togglling;
+                            doNothing = true;
+                            $("#mainCanvas").fadeOut("slow").fadeIn("slow").fadeOut("fast").fadeIn("fast");
+                            setTimeout(function () {
+                                isMoving = true;
+                                togglling = false;
+                                isFighting = false;
+                                doNothing = false;
+                            } , 2000);
+
                         }
                     }
                 }
-
+                //上下左右选择
                 if (keyCode == 38) {
                     switch (fight.getState()) {
                         case 1 :
@@ -214,6 +268,7 @@
                     }
                 }
             }
+
         };
         function initObj(){
             for(var y = 0; y<world.length ;y++){
@@ -234,21 +289,20 @@
 
         }
         function canMove(x, y){
+            //get tileID.
             var px = Math.floor((-mapRenderer._x + window.screen.width/2 +x) / 32);
             var py = Math.floor((-mapRenderer._y + window.screen.height/2+y)/ 32);
             var tileID = world[py][px] -1;
-            //.log(x +","+y+"||"+tileID);
+
             if ((tileID > -1 && tileID < 11) || (tileID > 13 && tileID < 20) || (tileID > 23 && tileID < 30))
             {
+                //草丛ID
                 if(tileID == 10){
                     //遇到PM
                     if(Math.random() < 0.01) {
-                        togglling = !togglling;
                         $("#mainCanvas").fadeTo("slow",0.3).fadeTo("slow",0.8).fadeTo("slow" , 0.5).fadeTo("slow" , 1.0);
+                        togglling = true;
                         fight = new Fighting(imageManager);
-                        setTimeout(function () {
-                            isMoving = !isMoving;
-                        },2000);
                     }
                 }
                 return true;
