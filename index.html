@@ -12,6 +12,9 @@
             padding:0;
             border:0;
         }
+        .menu{
+            display: none;
+        }
     </style>
     <script src="js/jquery-2.2.3.js"></script>
     <script src="js/ImageManager.js"></script>
@@ -35,6 +38,7 @@
         var spriteSheet;
         var worldObject;
         var fight;
+        var menu = [];
         var bag;
 
         var obj = [];
@@ -59,6 +63,8 @@
         var doNothing = false;
 
         var images = {
+            "menu" : "img/rtn.png",
+            "menu-b":"img/menu1.png",
             "house" : "img/house.png",
             "man" : "img/RM.png",
             "me" : "img/1/3Gback.png",
@@ -69,6 +75,7 @@
             "select3" :"img/select3.png",
             "select4" :"img/select4.png",
         };
+
         function init(){
             //Load IMG source.
             imageManager = new ImageManager();
@@ -96,7 +103,7 @@
             spriteSheet = new SpriteSheet(imageManager.get("man"), Human);
             initObj(); //初始化世界对象数组.
             bag = new BagRender();
-
+            initMenu();
             animate(0);//开始渲染
         }
 
@@ -270,6 +277,94 @@
             }
 
         };
+        var mouseDown = function (event) {
+                $('img:eq(0)').animate({
+                    right : '+=200px',
+                    opacity: '0',
+                    height : '200px',
+                    width : '200px'
+                },'fast');
+
+                 $('img:eq(1)').css('display' , 'block').animate({
+                          right : '1' ,
+                          opacity: '1'
+                       },200);
+                 $('img:eq(2)').css('display' , 'block').animate({
+                         right : '1' ,
+                         opacity: '1'
+                      },400);
+                 $('img:eq(3)').css('display' , 'block').animate({
+                         right : '1' ,
+                         opacity: '1'
+                     },600);
+                 $('img:eq(4)').css('display' , 'block').animate({
+                        right : '1' ,
+                        opacity: '1'
+                    },800);
+                 $('img:eq(5)').css('display' , 'block').animate({
+                        right : '1' ,
+                        opacity: '1'
+                    },1000);
+                 $('img:eq(6)').css('display' , 'block').animate({
+                       right : '1' ,
+                       opacity: '1'
+                    },1200);
+
+                 $('img:eq(0)').unbind("mousedown");
+                 $('canvas').bind("click", function () {
+                    $('img:eq(0)').animate({
+                        right : '-=200px',
+                        opacity: '0.5',
+                        height : '100px',
+                        width : '100px'
+                    });
+
+                    $('img:eq(1)').animate({
+                        right : '-200' ,
+                        opacity: '0',
+                    });
+                    $('img:eq(2)').animate({
+                        right : '-200' ,
+                        opacity: '0',
+                    });
+                    $('img:eq(3)').animate({
+                        right : '-200' ,
+                        opacity: '0',
+                    });
+                    $('img:eq(4)').animate({
+                        right : '-200' ,
+                        opacity: '0',
+                    });
+                    $('img:eq(5)').animate({
+                        right : '-200' ,
+                        opacity: '0',
+                    });
+                    $('img:eq(6)').animate({
+                        right : '-200' ,
+                        opacity: '0',
+                    });
+                    $('canvas').unbind("click");
+                    $('img:eq(0)').bind("mousedown" , mouseDown);
+                });
+        };
+        var mouseEvent = function(index){
+            $(menu[index]).bind("mouseover" , function(){
+                $(menu[index]).animate({
+                    top : '-=20px',
+                    right:'+=5px',
+                    width:'+=40px',
+                    height:'+=10px'
+                });
+            }).bind("mouseout", function () {
+                $(menu[index]).animate({
+                    top : '+=20px',
+                    right:'-=5px',
+                    width:'-=40px',
+                    height:'-=10px'
+                });
+            });
+        };
+
         function initObj(){
             for(var y = 0; y<world.length ;y++){
                 for(var x = 0; x<world[y].length;x++){
@@ -288,10 +383,69 @@
             };
 
         }
+        function initMenu(){
+            menu[0] = document.createElement("img");
+            menu[0].src = "img/rtn.png";
+            menu[0].width = "100";
+            menu[0].height= "100";
+            menu[0].style.opacity = 0.5;
+            menu[0].style.position = "fixed";
+            menu[0].style.right = "0px";
+            menu[0].style.top = (window.screen.height/2-100) + "px";
+            document.body.appendChild(menu[0]);
+            $('img:eq(0)').mouseover(function(){
+                $('img:eq(0)').animate({
+                    top : '-=60px',
+                    opacity: '1.0',
+                    height : '150px',
+                    width :  '150px'
+                },'fast');
+            });
+            $('img:eq(0)').mouseout(function (){
+                $('img:eq(0)').animate({
+                    top : '+=60px',
+                    opacity: '0.5',
+                    height : '100px',
+                    width : '100px'
+                });
+            });
+          /*  $('img:eq(0)').toggle(
+                    function (event) {
+                        console.log("1");
+                        menu[1].style.display = 'block';
+
+                          console.log("2");
+                          event.stopPropagation();
+                          event.preventDefault();
+                    },
+                    function (event) {
+                        console.log("3");
+                        menu[1].style.display = 'none';
+                        console.log("4");
+                    }
+            );*/
+            $('img:eq(0)').mousedown(mouseDown);
+
+            for(var index = 1 ; index < 7 ; index++){
+                menu[index] = document.createElement('img');
+                menu[index].src = "img/menu1.png";
+                menu[index].name = index;
+                menu[index].style.display = "none";
+                menu[index].style.width = "192px";
+                menu[index].style.height= "75px";
+                menu[index].style.opacity = '0';
+                menu[index].style.position = "fixed";
+                menu[index].style.top = (window.screen.height* index /10 ) + "px";
+                menu[index].style.right = "-101px";
+                document.body.appendChild(menu[index]);
+
+                mouseEvent(index);
+            }
+        }
         function canMove(x, y){
             //get tileID.
-            var px = Math.floor((-mapRenderer._x + window.screen.width/2 +x) / 32);
-            var py = Math.floor((-mapRenderer._y + window.screen.height/2+y)/ 32);
+            var px = Math.floor((-mapRenderer._x + window.screen.width/2 +x) / 32 - 0.3);
+            var py = Math.floor((-mapRenderer._y + window.screen.height/2+y)/ 32  - 0.3);
             var tileID = world[py][px] -1;
 
             if ((tileID > -1 && tileID < 11) || (tileID > 13 && tileID < 20) || (tileID > 23 && tileID < 30))

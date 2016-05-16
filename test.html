@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style rel="stylesheet">
+        .level1{
+            position: absolute;
+            left: 500px;
+            top:  300px;
+            box-shadow: 3px 3px;
+            z-index: 3;
+        }
+
+        .menu {
+            position: fixed;
+            right: 10px;
+            top : 500px;
+        }
+    </style>
+    <script src = "js/jquery-2.2.3.js"></script>
+    <script>
+        window.onload = function(){
+            var img1 = document.createElement("img");
+            img1.src = "img/bg.jpg";
+            img1.width = "247";
+            img1.height= "135";
+            img1.style.position = "fixed";
+            img1.style.left = "500px";
+            img1.style.top  = "300px";
+            img1.style.boxshadow = "3px 3px";
+            img1.style.zIndex = "3";
+            //img1.className = "level1";
+            img1.onmouseover = fc;
+            img1.onmouseout = nfc;
+            document.body.appendChild(img1);
+
+            var img2 = document.createElement("img");
+            img2.src = "img/bg.jpg";
+            img2.style.width = "164px";
+            img2.style.height = "90px";
+            img2.style.position = "fixed";
+            img2.style.left = "430px";
+            img2.style.top = "290px";
+            img2.style.zIndex = '2';
+            document.body.appendChild(img2);
+
+            var img3 = document.createElement("img");
+            img3.src = "img/bg.jpg";
+            img3.style.width = "164px";
+            img3.style.height = "90px";
+            img3.style.position = "fixed";
+            img3.style.left = "700px";
+            img3.style.top = "290px";
+            img3.style.zIndex = '2';
+            document.body.appendChild(img3);
+
+            var img4 = document.createElement("img");
+            img4.src = "img/bg.jpg";
+            img4.style.width = "123px";
+            img4.style.height = "67px";
+            img4.style.position = "fixed";
+            img4.style.left = "330px";
+            img4.style.top = "280px";
+            img4.style.zIndex = '1';
+            document.body.appendChild(img4);
+
+            var img5 = document.createElement("img");
+            img5.src = "img/bg.jpg";
+            img5.style.width = "123px";
+            img5.style.height = "67px";
+            img5.style.position = "fixed";
+            img5.style.left = "800px";
+            img5.style.top = "280px";
+            img5.style.zIndex = '1';
+            document.body.appendChild(img5);
+
+            var menu = document.createElement("img");
+            menu.src = "img/rtn.png";
+            menu.className = "menu";
+            menu.id = "rtn";
+            document.body.appendChild(menu);
+
+            $('img:eq(5)').toggle(function () {
+                alert(1);
+                console.log(1);
+            }, function () {
+                alert(2);
+                console.log(2);
+                    }
+            );
+        }
+
+        var fc = function (event) {
+            event = event || window.event;
+            var img = event.target;
+            img.style.left = "490px";
+            img.style.top  = "290px";
+            img.width  += 40;
+            img.height += 20;
+        }
+
+        var nfc = function (event) {
+            event = event || window.event;
+            var img = event.target;
+            img.style.left = "500px";
+            img.style.top  = "300px";
+            img.width -= 40;
+            img.height-= 20;
+
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
