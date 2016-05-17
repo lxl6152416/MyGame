@@ -1,9 +1,9 @@
-﻿/**
+/**
  * Created by Administrator on 2016/5/9.
  */
 function Fighting(img){
-    this._w = 1920;
-    this._h = 1080;
+    this._w = 1366;
+    this._h = 768;
     this._meX = this._w/8;
     this._meY = this._h/2;
     this._emX = this._w *5/8;
