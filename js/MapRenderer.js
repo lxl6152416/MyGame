@@ -6,8 +6,8 @@ function MapRenderer(mapData, image, tileSize, viewportWidth, viewportHeight) {
     this._viewportHeight = viewportHeight;
 
     // Coordinates of the map
-    this._x = 0;
-    this._y = 0;
+    this._x = -400;
+    this._y = -300;
 
     // Offscreen buffer
     this._offCanvas = document.createElement("canvas");
@@ -39,8 +39,8 @@ _p.draw = function(ctx) {
 
 
 _p.move = function(deltaX, deltaY) {
-    this._x += deltaX;
-    this._y += deltaY;
+    this._x += deltaX ;
+    this._y += deltaY ;
     this._updateOffscreenBounds();
 };
 

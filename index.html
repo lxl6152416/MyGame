@@ -43,11 +43,11 @@
 
         var obj = [];
         var id = 0;
-        var speed = 16;
+        var speed = 8;
         var moveX = 0;
         var moveY = 0;
 
-        var now;
+        var now ;
         var frame = 0;
         var numFrames = 4;
         var duration = numFrames * 500;
@@ -107,6 +107,8 @@
             alert("请双击进入全屏模式!");
             document.body.ondblclick = fullScreen;
             document.body.onkeydown = KeyDown;
+            document.body.onkeyup = KeyUp;
+
         }
         //图像加载完后回调;
         function onLoaded(){
@@ -125,11 +127,6 @@
             //根据游戏当前状态,进行各个状态的渲染.
             if (isMoving){
                 mapRenderer.draw(ctx);
-
-                now = 0 || new Date().getTime();//初始化开始时间;
-                var passed = (now - frameStart)%duration;
-                var currentFrame = Math.floor((passed/duration)*numFrames);
-
                 spriteSheet.drawFrame(ctx, frame, currentFrame, window.screen.width/2 ,window.screen.height/2);
                 if(isBag) bag.draw(ctx);
             }
@@ -153,23 +150,32 @@
             }
             else if (isMoving) {
                 event = event || window.event;
-
+                now = new Date().getTime() || 0;
                 if (keyCode == 38) {
                     if (canMove(0, -speed))
                         mapRenderer.move(moveX, speed);
                     frame = 3;
+                    var passed = (now - frameStart) % duration;
+                    currentFrame = Math.floor((passed/duration) * numFrames);
                 } else if (keyCode == 40) {
-                    if (canMove(0, speed))
+                    if (canMove(0, speed)){
                         mapRenderer.move(moveX, -speed);
+                    }
                     frame = 0;
+                    var passed = (now - frameStart) % duration;
+                    currentFrame = Math.floor((passed/duration) * numFrames);
                 } else if (keyCode == 37) {
                     if (canMove(-speed, 0))
                         mapRenderer.move(speed, moveY);
                     frame = 1;
+                    var passed = (now - frameStart) % duration;
+                    currentFrame = Math.floor((passed/duration) * numFrames);
                 } else if (keyCode == 39) {
                     if (canMove(speed, 0))
                         mapRenderer.move(-speed, moveY);
                     frame = 2;
+                    var passed = (now - frameStart) % duration;
+                    currentFrame = Math.floor((passed/duration) * numFrames);
                 }
                 ;
             }
@@ -268,6 +274,10 @@
             }
 
         };
+        var KeyUp = function (event) {
+            currentFrame = 0;
+            speed = 8;
+        }
         var mouseDown = function (event) {
                 $('img:eq(0)').animate({
                     right : '+=200px',
