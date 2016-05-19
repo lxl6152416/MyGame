@@ -17,6 +17,8 @@
         }
     </style>
     <script src="js/jquery-2.2.3.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
     <script src="js/ImageManager.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/world.js"></script>
@@ -40,6 +42,7 @@
         var fight;
         var menu = [];
         var bag;
+        var pos;
 
         var obj = [];
         var id = 0;
@@ -71,6 +74,7 @@
             "menu" : "img/rtn.png",
             "menu-b":"img/menu1.png",
             "house" : "img/house.png",
+            "inside": "img/inside.png",
             "man" : "img/RM.png",
             "me" : "img/1/3Gback.png",
             "enemy" : "img/4/front.png",
@@ -112,7 +116,6 @@
         }
         //图像加载完后回调;
         function onLoaded(){
-
             mapRenderer = new MapRenderer(world, imageManager.get("house"),32,canvas.width,canvas.height);
             spriteSheet = new SpriteSheet(imageManager.get("man"), Human);
             initObj(); //初始化世界对象数组.
@@ -128,12 +131,12 @@
             if (isMoving){
                 mapRenderer.draw(ctx);
                 spriteSheet.drawFrame(ctx, frame, currentFrame, window.screen.width/2 ,window.screen.height/2);
-                if(isBag) bag.draw(ctx);
             }
             else if (isFighting){
                 //进入战斗 !isMoving
                 fight.draw(ctx);
             }
+
             requestAnimationFrame(arguments.callee);
         }
 
@@ -371,7 +374,7 @@
                 for(var x = 0; x<world[y].length;x++){
                     var tileId = world[y][x]-1;
 
-                    if((tileId <=10 && tileId >=0 )|| (tileId >13 && tileId <20) || (tileId >23 && tileId <30))
+                    if((tileId <=10 && tileId >=0 )|| (tileId >13 && tileId <20) || (tileId >23 && tileId <30) || tileId ==61 || tileId ==100 || tileId==101 ||tileId == 78 || tileId == 79)
                         continue;
                     else {
                         var wo = new WorldObject(id , x*32 ,y*32);
@@ -450,7 +453,6 @@
                 audio[i].loop = 'loop';
                 audio[i].load();
             }
-            console.log("end.");
             audio[0].play();
         }
         function canMove(x, y){
@@ -458,8 +460,7 @@
             var px = Math.floor((-mapRenderer._x + window.screen.width/2 +x) / 32 - 0.3);
             var py = Math.floor((-mapRenderer._y + window.screen.height/2+y)/ 32  - 0.3);
             var tileID = world[py][px] -1;
-
-            if ((tileID > -1 && tileID < 11) || (tileID > 13 && tileID < 20) || (tileID > 23 && tileID < 30))
+            if ((tileID > -1 && tileID < 11) || (tileID > 13 && tileID < 20) || (tileID > 23 && tileID < 30) || tileID == 61 || tileID == 100 || tileID == 101 || tileID == 78 || tileID == 79)
             {
                 //草丛ID
                 if(tileID == 10){
@@ -468,6 +469,16 @@
                         whichState(INT_FIGHTING);
                         fight = new Fighting(imageManager);
                     }
+                }
+                if(tileID == 61){
+                    //open the door
+                    pos = mapRenderer.getXY();
+                    mapRenderer.setXY(630,-2580);
+                }
+                if( tileID == 78 || tileID == 79)
+                {
+                    console.log(pos.x +","+ pos.y);
+                    mapRenderer.setXY(pos.x , pos.y);
                 }
                 return true;
             }
@@ -491,7 +502,9 @@
                     doNothing = true;
                     audio[0].pause();
                     audio[2].play();
-                    $("#mainCanvas").fadeOut("slow").fadeIn("slow").fadeOut("fast").fadeIn("fast");
+                    $("#mainCanvas").effect("scale" ,{percent : 0}, 2000 ,function(){
+                        $( "#mainCanvas" ).removeAttr( "style" ).fadeIn();
+                    });
 
                     setTimeout(function () {
                         doNothing= false;
@@ -506,7 +519,9 @@
 
                 case INT_NOTHING:
                     doNothing = true;
-                    $("#mainCanvas").fadeOut("slow").fadeIn("slow").fadeOut("fast").fadeIn("fast");
+                    $("#mainCanvas").effect("clip",2000,function(){
+                        $( "#mainCanvas" ).removeAttr( "style" ).fadeIn();
+                    });
                     break;
             }
         }
