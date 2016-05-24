@@ -27,7 +27,7 @@ _p.setPosition = function(id, x , y){
     this._y = y;
 };
 
-_p.init = function () {
+/*_p.init = function () {
     for(var y = 0 ; y<this._mapData.length ; y++){
         for(var x = 0 ; x<this._mapData[y].length;x++){
             this._object.push({
@@ -38,4 +38,4 @@ _p.init = function () {
             console.log(this._object[x].id);
         }
     }
-}
+}*/

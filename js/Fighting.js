@@ -72,7 +72,17 @@ _p._drawEm = function (ctx) {
 _p._drawFight =function (ctx){
     ctx.drawImage(this._whichState(), 0, 0, 620, 184,this._meX + 128,this._meY + 128,620,184);
 };
+_p.drawInfo = function(ctx , info){
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 6;
+    ctx.strokeRect(this._meX + 128,this._meY + 128,620,184);
+    ctx.fillRect(this._meX + 128,this._meY + 128,620,184);
 
+    ctx.fillStyle = "white";
+    ctx.fillText(info , this._meX + 130,this._meY + 150,620,184);
+
+    ctx.fillText("按空格键继续..." , this._meX + 550,this._meY + 300,620,184);
+};
 _p.resetView = function(x ,y){
     this._w = x;
     this._h = y;

@@ -63,13 +63,15 @@
         var isFighting = false;
         var isMenu = false;
         var isBag = false;
+        var isInfo = false;
         var doNothing = false;
+
         var INT_MOVING = 0;
         var INT_TOGGLLING = 1;
         var INT_FIGHTING = 2;
         var INT_MENU = 3;
         var INT_NOTHING = 4;
-
+        var INT_INFO = 5;
         var images = {
             "menu" : "img/rtn.png",
             "menu-b":"img/menu1.png",
@@ -135,6 +137,10 @@
             else if (isFighting){
                 //进入战斗 !isMoving
                 fight.draw(ctx);
+                //提示信息 !isInfo
+                if(isInfo){
+                    fight.drawInfo(ctx);
+                }
             }
 
             requestAnimationFrame(arguments.callee);
@@ -151,8 +157,14 @@
             if(togglling){
                 return false;
             }
+            else if(isInfo){
+                if(keyCode == 32)
+                $("#mainCanvas").effect("shake",function(){
+                    $( "#mainCanvas" ).removeAttr( "style" ).fadeIn();
+                    isInfo = false;
+                });
+            }
             else if (isMoving) {
-                event = event || window.event;
                 now = new Date().getTime() || 0;
                 if (keyCode == 38) {
                     if (canMove(0, -speed))
@@ -211,7 +223,7 @@
                             else {
                             alert("逃跑成功!");
                             whichState(INT_NOTHING);
-                            setTimeout(function(){whichState(INT_MOVING)}, 2000);
+                            setTimeout(function(){whichState(INT_MOVING)}, 1500);
 
                         }
                     }
@@ -275,7 +287,6 @@
                     }
                 }
             }
-
         };
         var KeyUp = function (event) {
             currentFrame = 0;
@@ -287,69 +298,71 @@
                     opacity: '0',
                     height : '200px',
                     width : '200px'
-                },'fast');
-
-                 $('img:eq(1)').css('display' , 'block').animate({
-                          right : '1' ,
-                          opacity: '1'
-                       },200);
-                 $('img:eq(2)').css('display' , 'block').animate({
-                         right : '1' ,
-                         opacity: '1'
-                      },400);
-                 $('img:eq(3)').css('display' , 'block').animate({
-                         right : '1' ,
-                         opacity: '1'
-                     },600);
-                 $('img:eq(4)').css('display' , 'block').animate({
+                },'fast','swing', function () {
+                    $('img:eq(1)').css('display' , 'block').animate({
+                        right : '1' ,
+                        opacity: '1'
+                    },200);
+                    $('img:eq(2)').css('display' , 'block').animate({
+                        right : '1' ,
+                        opacity: '1'
+                    },400);
+                    $('img:eq(3)').css('display' , 'block').animate({
+                        right : '1' ,
+                        opacity: '1'
+                    },600);
+                    $('img:eq(4)').css('display' , 'block').animate({
                         right : '1' ,
                         opacity: '1'
                     },800);
-                 $('img:eq(5)').css('display' , 'block').animate({
+                    $('img:eq(5)').css('display' , 'block').animate({
                         right : '1' ,
                         opacity: '1'
                     },1000);
-                 $('img:eq(6)').css('display' , 'block').animate({
-                       right : '1' ,
-                       opacity: '1'
+                    $('img:eq(6)').css('display' , 'block').animate({
+                        right : '1' ,
+                        opacity: '1'
                     },1200);
 
-                 $('img:eq(0)').unbind("mousedown");
-                 $('canvas').bind("click", function () {
-                    $('img:eq(0)').animate({
-                        right : '-=200px',
-                        opacity: '0.5',
-                        height : '100px',
-                        width : '100px'
-                    });
+                    $('img:eq(0)').unbind("mousedown");
+                    $('canvas').bind("click", function () {
+                        $('img:eq(0)').animate({
+                            right : '-=200px',
+                            opacity: '0.5',
+                            height : '100px',
+                            width : '100px'
+                        });
 
-                    $('img:eq(1)').animate({
-                        right : '-200' ,
-                        opacity: '0',
+                        $('img:eq(1)').animate({
+                            right : '-200' ,
+                            opacity: '0',
+                        });
+                        $('img:eq(2)').animate({
+                            right : '-200' ,
+                            opacity: '0',
+                        });
+                        $('img:eq(3)').animate({
+                            right : '-200' ,
+                            opacity: '0',
+                        });
+                        $('img:eq(4)').animate({
+                            right : '-200' ,
+                            opacity: '0',
+                        });
+                        $('img:eq(5)').animate({
+                            right : '-200' ,
+                            opacity: '0',
+                        });
+                        $('img:eq(6)').animate({
+                            right : '-200' ,
+                            opacity: '0',
+                        });
+                        $('canvas').unbind("click");
+                        $('img:eq(0)').bind("mousedown" , mouseDown);
                     });
-                    $('img:eq(2)').animate({
-                        right : '-200' ,
-                        opacity: '0',
-                    });
-                    $('img:eq(3)').animate({
-                        right : '-200' ,
-                        opacity: '0',
-                    });
-                    $('img:eq(4)').animate({
-                        right : '-200' ,
-                        opacity: '0',
-                    });
-                    $('img:eq(5)').animate({
-                        right : '-200' ,
-                        opacity: '0',
-                    });
-                    $('img:eq(6)').animate({
-                        right : '-200' ,
-                        opacity: '0',
-                    });
-                    $('canvas').unbind("click");
-                    $('img:eq(0)').bind("mousedown" , mouseDown);
                 });
+
+
         };
         var mouseEvent = function(index){
             $(menu[index]).bind("mouseover" , function(){
@@ -377,10 +390,8 @@
                     if((tileId <=10 && tileId >=0 )|| (tileId >13 && tileId <20) || (tileId >23 && tileId <30) || tileId ==61 || tileId ==100 || tileId==101 ||tileId == 78 || tileId == 79)
                         continue;
                     else {
-                        var wo = new WorldObject(id , x*32 ,y*32);
+                        var wo = new WorldObject(tileId , x*32 ,y*32);
                         obj.push(wo);
-                        // console.log(tileId + "," +obj[id]._x +","+ obj[id]._y);
-                        id++;
                     }
 
                 }
@@ -457,8 +468,8 @@
         }
         function canMove(x, y){
             //get tileID.
-            var px = Math.floor((-mapRenderer._x + window.screen.width/2 +x) / 32 - 0.3);
-            var py = Math.floor((-mapRenderer._y + window.screen.height/2+y)/ 32  - 0.3);
+            var px = Math.floor((-mapRenderer._x + window.screen.width /2 + x)/ 32);
+            var py = Math.floor((-mapRenderer._y + window.screen.height/2 + y)/ 32);
             var tileID = world[py][px] -1;
             if ((tileID > -1 && tileID < 11) || (tileID > 13 && tileID < 20) || (tileID > 23 && tileID < 30) || tileID == 61 || tileID == 100 || tileID == 101 || tileID == 78 || tileID == 79)
             {
@@ -473,11 +484,11 @@
                 if(tileID == 61){
                     //open the door
                     pos = mapRenderer.getXY();
-                    mapRenderer.setXY(630,-2580);
+                    mapRenderer.setXY(630,-2550);
                 }
                 if( tileID == 78 || tileID == 79)
                 {
-                    console.log(pos.x +","+ pos.y);
+                    //$('#mainCanvas').effect('blind');
                     mapRenderer.setXY(pos.x , pos.y);
                 }
                 return true;
@@ -511,6 +522,7 @@
                         isMoving = false;
                         togglling = false;
                         isFighting = true;
+                        isInfo = true;
                     } , 2000);
                         break;
 
@@ -523,6 +535,14 @@
                         $( "#mainCanvas" ).removeAttr( "style" ).fadeIn();
                     });
                     break;
+
+                case INT_INFO:
+                    isInfo = true;
+                    isMoving = false;
+                    isFighting = false;
+                    isMenu = false;
+                    isBag = false;
+                    doNothing = false;
             }
         }
         function clear(){
